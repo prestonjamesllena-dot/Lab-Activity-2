@@ -9,7 +9,7 @@ public class Vehicle {
         this.model = model;
 
         if (year >= 1886 && year <= 2026) {
-            this.yea = year;
+            this.year = year;
         } else { 
             this.year = 2026;
         }
@@ -18,7 +18,7 @@ public class Vehicle {
 }   
     public String getModel() {
         return model;
-}   public String getYear() {
+}   public int getYear() {
         return year;
 }
     public boolean setYear(int year) {
@@ -39,6 +39,6 @@ public class Vehicle {
         System.out.println("Model :" + model);
         System.out.println("Year :" + year);
         System.out.println("Age :" + calculateAge());
-        System.out.println("Vintage :" + isVIntage());
+        System.out.println("Vintage :" + isVintage());
     }
 }
