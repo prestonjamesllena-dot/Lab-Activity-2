@@ -1,66 +1,50 @@
 public class Main {
 
+    // DEMO 2: One method accepts different Vehicle subclasses
+    public static void printDetails(Vehicle v) {
+        v.displayInfo();
+    }
+
     public static void main(String[] args) {
 
-
-        Vehicle car = new Vehicle("toyota", "Corolla", 2015);
-        Vehicle car = new Vehicle("Ford", "Mustang", 1967);
-        Vehicle car = new Vehicle("Honda", "Civic", 2020);
-
-      System.out.println("--- VEHICLE 1 DETAILS ---");
-      car1.displayInfo();
-      System.out.println("Getters -> Brand: " + car1.getBrand() + ", Model: " + car1.getModel() + ", Year: " + car1.getYear());
-      System.out.println();
-
-      System.out.println("--- VEHICLE 2 DETAILS ---");
-      car2.displayInfo();
-      System.out.println("Getters -> Brand: " + car2.getBrand() + ", Model: " + car2.getModel() + ", Year: " + car2.getYear());
-      System.out.println();
-      
-      System.out.println("--- VEHICLE 3 DETAILS ---");
-      car3.displayInfo();
-      System.out.println("Getters -> Brand: " + car3.getBrand() + ", Model: " + car3.getModel() + ", Year: " + car3.getYear());
-      System.out.println();
-
-      System.out.println("--- TESTING setYear() BEHAVIOR ---");
-        
-      boolean res1 = car1.setYear(2000);
-      System.out.println("setYear(2000) result: " + res1 + "; year is " + car1.getYear() + "; age: " + car1.calculateAge() + "; vintage: " + car1.isVintage());
-
-      boolean res2 = car1.setYear(1885);
-      System.out.println("setYear(1885) result: " + res2 + "; year remains " + car1.getYear());
-
-      boolean res3 = car1.setYear(2027);
-      System.out.println("setYear(2027) result: " + res3 + "; year remains " + car1.getYear()); 
-      System.out.println();
-
-      System.out,prinln("--- TESTING CONSTRUCTOR VALIDATION ---");
-      Vehicle invalidCar1 = new Vehicle("Tesla", "Model 3", 1885);
-      System.out.println("New vehicle with year 1885 -> Initial year is " + invalidCar1.getYear()); 
-
-      Vehicle invalidCar2 = new Vehicle("BMW", "M 3", 2027);
-      System.out.println("New vehicle with year 2027 -> Initial year is " + invalidCar2.getYear());
-    }
- }
-
-      
-
-
-        Vehicle v1 = new Vehicle("Toyota", "Corolla", 2020);
-        
-        Vehicle v2 = new Vehicle("Honda", "Civic", 1995);
-
-        Vehicle v3 = new Vehicle("Ford", "Mustang", 2010);
-
-        displayVehicle(v1);
-        displayVehicle(v2);
-        displayVehicle(v3);
-    }
-        public static void displayVehicle(Vehicle vehicle){
-        vehicle.displayInfo(); 
-        System.out.println("Age: " + vehicle.calculateAge());
-        System.out.println("Vintage: " + vehicle.isVintage()); 
+        // DEMO 1: A parent reference holding a child object
+        System.out.println("=== 1. Parent Reference ===");
+        Vehicle vehicle = new Car("Tesla", "Roadster", 2026, 4);
+        vehicle.displayInfo();
         System.out.println();
+
+        // The same variable now refers to a Truck object.
+        vehicle = new Truck("Isuzu", "Giga", 2025, 6);
+        vehicle.displayInfo();
+
+        System.out.println();
+
+        // The same variable now refers to a Motorcycle object.
+        vehicle = new Motorcycle("Yamaha", "Nmax v3", 2026, "Basta Modagan");
+        vehicle.displayInfo();
+        System.out.println();
+
+        // DEMO 2: One method accepts different Vehicle subclasses
+        System.out.println("\n=== 2. Method Parameter ===");
+        Car car = new Car("Toyota", "Innova", 2023, 4);
+        printDetails(car);
+        System.out.println();
+
+        printDetails(new Truck("Hino", "500", 2024, 6));
+        System.out.println();
+
+        printDetails(new Motorcycle("Honda", "Click", 2025, "155cc"));
+
+        // DEMO 3: Array of parent type holding different children
+        System.out.println("\n=== 3. Array of Vehicles ===");
+        Vehicle[] garage = {
+            new Car("Honda", "Civic", 2024, 4),
+            new Truck("Isuzu", "Elf", 2022, 4),
+            new Motorcycle("Suzuki", "Raider", 2025, "150cc")
+        };
+        for (Vehicle v : garage) {
+            v.displayInfo();
+            System.out.println();
+        }
     }
 }
-
