@@ -11,8 +11,29 @@ public class Car extends Vehicle {
         super.displayInfo();
         System.out.println("Number of Doors: " + doors);
     }
-    public abstract void moveForward();
-    public abstract void moveBackwards();
-    public abstract void moveLeft();
-    public abstract void moveRight();
+  @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Doors: " + doors);
+    }
+
+    @Override
+    public void moveForward() {
+        System.out.println("A car moves forward");
+    }
+
+    @Override
+    public void moveBackwards() {
+        System.out.println("A car moves backwards");
+    }
+
+    @Override
+    public void moveLeft() {
+        System.out.println("A car moves left");
+    }
+
+    @Override
+    public void moveRight() {
+        System.out.println("A car moves right");
+    }
 }
