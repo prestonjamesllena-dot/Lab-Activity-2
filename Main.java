@@ -44,6 +44,10 @@ public class Main {
         };
         for (Vehicle v : garage) {
             v.displayInfo();
+            v.moveForward();
+            v.moveBackwards();
+            v.moveLeft();
+            v.moveRight();
             System.out.println();
         }
     }
