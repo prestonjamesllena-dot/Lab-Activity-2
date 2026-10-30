@@ -1,5 +1,4 @@
-import java.time.Year;
-
+public class Vehicle {
 
     private String brand;
     private String model;
@@ -8,66 +7,14 @@ import java.time.Year;
     public Vehicle(String brand, String model, int year) {
         this.brand = brand;
         this.model = model;
+        this.year = year;
+    }
 
-        if (year >= 1886 && year <= 2026) {
-            this.year = year;
-        } else { 
-            this.year = 2026;
-        }
-}   public String getBrand() {
-        return brand;
-}   
-    public String getModel() {
-        return model;
-}   public int getYear() {
-        return year;
-}
-    public boolean setYear(int year) {
-        if (year >= 1886 && year <= 2026) {
-            this.year = year;
-            return true;
-        }
-        return false;
-    }
-    public int calculateAge() {
-        return 2026 - this.year;
-    }
-    public boolean isVintage() {
-        return calculateAge() > 25;
-    }
     public void displayInfo() {
-        System.out.println("Brand :" + brand);
-        System.out.println("Model :" + model);
-        System.out.println("Year :" + year);
-        System.out.println("Age :" + calculateAge());
-        System.out.println("Vintage :" + isVintage());
-    }
-}
-
-    public class Vehicle { 
-     
-        private String brand; 
-        private String model; 
-        private int year; 
-        
-    public Vehicle(String brand, String model, int year) { 
-        
-        this.brand = brand; 
-        this.model = model; 
-        this.year = year; 
-    }
-
-    public void displayInfo() { 
-        System.out.println(brand + " " + model + " " + year);
+        System.out.println("Brand: " + brand + ", Model: " + model + ", Year: " + year);
     } 
-        public int calculateAge() { 
-            
-            int currentYear = Year.now().getValue(); 
-            return currentYear - year; 
-        } 
-        
-            public boolean isVintage() { 
-                return calculateAge() > 25; 
-            } 
-    }
-
+    public abstract void moveForward();
+    public abstract void moveBackwards();
+    public abstract void moveLeft();
+    public abstract void moveRight();
+}
